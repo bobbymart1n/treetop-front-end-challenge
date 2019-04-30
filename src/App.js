@@ -9,10 +9,13 @@ import "./App.css";
 
 const Container = styled.main`
   padding: 0 1.5rem;
+  & h1 {
+    margin-top: 3rem;
+  }
   & .gifs-wrapper {
     display: grid;
     max-width: 100%;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 1rem;
     & img {
       box-sizing: border-box;
