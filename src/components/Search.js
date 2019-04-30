@@ -15,6 +15,7 @@ const SearchBar = styled.input`
 const SearchContainer = styled.form`
   display: flex;
   padding-top: 1.5rem;
+  margin-bottom: 1.5rem;
   & button {
     background-color: steelblue;
     border: none;
