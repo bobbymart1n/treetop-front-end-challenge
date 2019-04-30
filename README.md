@@ -15,7 +15,7 @@ To run the project in your local development environment, use the following inst
 - First clone this repository
 - After the repository has been cloned, `cd` into the project directory
 - Once in the project directory run: `npm install` or `yarn`
-- Once dependencies have finished installing, open the project in the preferred text editor and add your Giphy API Key to the `API_KEY` constant in `utils.js`
+- Once dependencies have finished installing, open the project in the preferred text editor and add your Giphy API Key to the `API_KEY` constant in `constants.js`
 - Once all the necessary dependencies are installed and you've entered your API Key run: `npm start` or `yarn start`
 
 _I didn't include a reference to the build script as deployment isn't necessary for this project._
