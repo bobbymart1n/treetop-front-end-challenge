@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 import Search from "./components/Search";
 
+import { handleSearch } from "./utils";
+
 import "./App.css";
 
 const Container = styled.main`
@@ -12,7 +14,8 @@ const Container = styled.main`
 const App = () => (
   <div className="App">
     <Container>
-      <Search />
+      <Search onSubmittingSearchTerms={handleSearch} />
+      <div />
     </Container>
   </div>
 );
