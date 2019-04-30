@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const SearchBar = styled.input`
@@ -6,13 +7,25 @@ const SearchBar = styled.input`
   height: 50px;
   font-size: 1em;
   width: 100%;
+  background: transparent;
+  margin-right: 1rem;
+  border-bottom: 1px solid #ccc;
 `;
 
-const SearchContainer = styled.div`
-  background-color: #222;
+const SearchContainer = styled.form`
+  display: flex;
+  padding-top: 1.5rem;
+  & button {
+    background-color: steelblue;
+    border: none;
+    font-size: 1em;
+    color: #fff;
+    border-radius: 10px;
+    width: 150px;
+  }
 `;
 
-const Search = () => {
+const Search = props => {
   const [searchParam, setSearchParam] = useState("");
   const handleChange = e => {
     e.preventDefault();
@@ -20,13 +33,21 @@ const Search = () => {
     const { value } = target;
     setSearchParam(value);
   };
-  console.log(searchParam);
+  const handleSubmit = e => {
+    e.preventDefault();
+    props.onSubmittingSearchTerms(searchParam);
+  };
 
   return (
-    <SearchContainer>
+    <SearchContainer onSubmit={handleSubmit}>
       <SearchBar placeholder="Search Giphy" onChange={handleChange} />
+      <button type="submit">Search</button>
     </SearchContainer>
   );
+};
+
+Search.propTypes = {
+  onSubmittingSearchTerms: PropTypes.func.isRequired
 };
 
 export default Search;
