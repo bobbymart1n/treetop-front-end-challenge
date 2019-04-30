@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const SearchBar = styled.input`
@@ -12,10 +12,21 @@ const SearchContainer = styled.div`
   background-color: #222;
 `;
 
-const Search = () => (
-  <SearchContainer>
-    <SearchBar placeholder="Search Giphy" />
-  </SearchContainer>
-);
+const Search = () => {
+  const [searchParam, setSearchParam] = useState("");
+  const handleChange = e => {
+    e.preventDefault();
+    const { target } = e;
+    const { value } = target;
+    setSearchParam(value);
+  };
+  console.log(searchParam);
+
+  return (
+    <SearchContainer>
+      <SearchBar placeholder="Search Giphy" onChange={handleChange} />
+    </SearchContainer>
+  );
+};
 
 export default Search;
